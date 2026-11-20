@@ -1,0 +1,21 @@
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: campus-canteen-api
+    container_name: campus-canteen-api-container
+    ports:
+      - "8001:8000"
+    restart: unless-stopped
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    image: campus-canteen-streamlit
+    container_name: campus-canteen-streamlit-container
+    ports:
+      - "8502:8501"
+    restart: unless-stopped
